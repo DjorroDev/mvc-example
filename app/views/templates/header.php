@@ -23,7 +23,5 @@
           <a class="nav-link" href="<?= BASEURL; ?>/about">About</a>
         </div>
       </div>
-      <p>adsdda</p>
-<p>addslashes</p>
     </div>
   </nav>
