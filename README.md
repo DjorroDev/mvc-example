@@ -7,18 +7,18 @@
 Bootstrap (css)
 
 ## Tree Directory:
-.
-├── app
-│   ├── config
-│   ├── controllers
-│   ├── core
-│   ├── models
-│   └── views
-│       ├── about
-│       ├── home
-│       ├── seiyuu
-│       └── templates
-└── public
-    ├── css
-    ├── html
-    └── js
+    .
+    ├── app
+    │   ├── config
+    │   ├── controllers
+    │   ├── core
+    │   ├── models
+    │   └── views
+    │       ├── about
+    │       ├── home
+    │       ├── seiyuu
+    │       └── templates
+    └── public
+        ├── css
+        ├── html
+        └── js
