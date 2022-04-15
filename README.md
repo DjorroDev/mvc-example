@@ -3,10 +3,13 @@
 
 > Note: This repo for me to study and learn made working full stack website
 
-## Framework used: 
+### About:
+This site basically MyAnimeList (MAL) clone. MAL is a website IMDB like but for japanese film and animation indusrty.
+
+### Framework used: 
 Bootstrap (css)
 
-## Tree Directory:
+### Tree Directory:
     .
     ├── app
     │   ├── config
@@ -22,3 +25,7 @@ Bootstrap (css)
         ├── css
         ├── html
         └── js
+        
+### Stage:
+Incomplete
+    
