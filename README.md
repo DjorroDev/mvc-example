@@ -4,7 +4,7 @@
 > Note: This repo for me to study and learn made working full stack website
 
 ### About:
-This site basically MyAnimeList (MAL) clone. MAL is a website IMDB like but for japanese film and animation indusrty.
+This site basically MyAnimeList (MAL) clone. MAL is a website IMDB like but for japanese movies and animations indusrty.
 
 ### Framework used: 
 Bootstrap (css)
