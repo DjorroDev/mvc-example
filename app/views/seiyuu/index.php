@@ -1,5 +1,11 @@
 <div class="row">
     <div class="col-6">
+        <?php Flasher::flash(); ?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modalForm">
             Add People

@@ -27,6 +27,11 @@ class Seiyuu extends Controller
         try {
             //code...
             if ($this->model('Seiyuu_model')->addDataSeiyuu($_POST) > 0) {
+                Flasher::setFlash('has been', 'added', 'success');
+                header('Location:' . BASEURL . '/seiyuu');
+                exit;
+            } else {
+                Flasher::setFlash('failed to', 'added', 'warning');
                 header('Location:' . BASEURL . '/seiyuu');
                 exit;
             }
