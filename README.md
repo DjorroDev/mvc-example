@@ -1,6 +1,10 @@
 # mvc-example
+
 ## Building website from scratch with PHP base on MVC architectural pattern
 
+### Stage:
+
+Incomplete
 
 ### About:
 
@@ -8,10 +12,12 @@
 
 This site basically MyAnimeList (MAL) clone. MAL is a website IMDB like but for japanese movies and animations indusrty. Right now There is only Voice Actor/Actrees (VA most called Seiyuu in japan) in the database. The others like an anime and character will be added soon maybe..
 
-### Framework used: 
+### Framework used:
+
 Bootstrap (css)
 
 ### Tree Directory:
+
     .
     ├── app
     │   ├── config
@@ -27,7 +33,4 @@ Bootstrap (css)
         ├── css
         ├── html
         └── js
-        
-### Stage:
-Incomplete
-    
+
