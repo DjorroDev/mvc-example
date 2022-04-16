@@ -13,8 +13,9 @@
         <h3 class="mb-4">list of seiyuu</h3>
         <ul class="list-group">
             <?php foreach ($data['seiyuu'] as $seiyuu) : ?>
-                <li class="list-group-item d-flex justify-content-between align-items-center"> <?= $seiyuu['name']; ?>
-                    <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>" class="badge bg-primary text-white" style="text-decoration:none;">detail</a>
+                <li class="list-group-item"> <?= $seiyuu['name']; ?>
+                    <a href="<?= BASEURL; ?>/seiyuu/delete/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-danger text-white float-end" style="text-decoration:none;" onclick="return confirm('Are you sure want to delete data?')">delete</a>
+                    <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-primary text-white float-end" style="text-decoration:none;">detail</a>
                 </li>
             <?php endforeach; ?>
         </ul>

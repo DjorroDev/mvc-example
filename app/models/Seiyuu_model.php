@@ -43,4 +43,15 @@ class Seiyuu_model
 
         return $this->db->rowCount();
     }
+
+    public function deleteDataSeiyuu($id)
+    {
+        $query = "DELETE FROM seiyuu WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
