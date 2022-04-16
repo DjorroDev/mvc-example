@@ -21,4 +21,17 @@ class Seiyuu extends Controller
         $this->view('seiyuu/detail', $data);
         $this->view('templates/footer');
     }
+
+    public function add()
+    {
+        try {
+            //code...
+            if ($this->model('Seiyuu_model')->addDataSeiyuu($_POST) > 0) {
+                header('Location:' . BASEURL . '/seiyuu');
+                exit;
+            }
+        } catch (\Throwable $th) {
+            var_dump($th);
+        }
+    }
 }
