@@ -42,11 +42,10 @@
                         <th scope="row"><?= $i++; ?></th>
                         <td>
                             <?php if ($seiyuu['image'] != null || $seiyuu['image'] !== 'nophoto.jpg') : ?>
-                                <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>">
-                                    <img class="mx-2" src="<?= BASEURL; ?>/img/people/<?= $seiyuu['image']; ?>" width="100px" alt="<?= $seiyuu['name']; ?>">
+                                <a class="mx-2" style="text-decoration:none;" href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>">
+                                    <img src="<?= BASEURL; ?>/img/people/<?= $seiyuu['image']; ?>" width="100px" alt="<?= $seiyuu['name']; ?>">
                                 </a>
                             <?php endif; ?>
-
                             <a class="" style="text-decoration: none;" href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>">
                                 <?= $seiyuu['name']; ?>
                             </a>
