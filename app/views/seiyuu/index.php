@@ -10,6 +10,22 @@
         <button type="button" id="buttonAdd" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modalForm">
             Add People
         </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <form action="<?= BASEURL; ?>/seiyuu/search" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" autocomplete="off" placeholder="Search seiyuu" name="keyword" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-primary" type="submit" id="searchBtn">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
         <h3 class="mb-4">list of seiyuu</h3>
         <ul class="list-group">
             <?php foreach ($data['seiyuu'] as $seiyuu) : ?>

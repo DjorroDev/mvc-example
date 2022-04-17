@@ -80,4 +80,15 @@ class Seiyuu_model
 
         return $this->db->rowCount();
     }
+
+    public function searchSeiyuu()
+    {
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM seiyuu where name LIKE :keyword";
+
+        $this->db->query($query);
+        $this->db->bind('keyword', "%" . $keyword . "%");
+
+        return $this->db->resultSet();
+    }
 }

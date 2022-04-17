@@ -4,7 +4,6 @@ class Seiyuu extends Controller
 {
     public function index()
     {
-
         $data['judul'] = 'Seiyuu List';
         $data['seiyuu'] = $this->model('Seiyuu_model')->getSeiyuu();
         $this->view('templates/header', $data);
@@ -77,5 +76,20 @@ class Seiyuu extends Controller
         } catch (\Throwable $th) {
             var_dump($th);
         }
+    }
+
+    public function search()
+    {
+        $data['judul'] = 'Seiyuu List';
+
+        try {
+            $data['seiyuu'] = $this->model('Seiyuu_model')->searchSeiyuu();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+        $this->view('templates/header', $data);
+        $this->view('seiyuu/index', $data);
+        $this->view('templates/footer');
     }
 }
