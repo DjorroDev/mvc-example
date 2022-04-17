@@ -56,4 +56,26 @@ class Seiyuu extends Controller
             var_dump($th);
         }
     }
+
+    public function getchange()
+    {
+        echo json_encode($this->model('Seiyuu_model')->getSeiyuuById($_POST['id']));
+    }
+
+    public function change()
+    {
+        try {
+            if ($this->model('Seiyuu_model')->changeDataSeiyuu($_POST) > 0) {
+                Flasher::setFlash('has been', 'changed', 'success');
+                header('Location:' . BASEURL . '/seiyuu');
+                exit;
+            } else {
+                Flasher::setFlash('failed to', 'changed', 'danger');
+                header('Location:' . BASEURL . '/seiyuu');
+                exit;
+            }
+        } catch (\Throwable $th) {
+            var_dump($th);
+        }
+    }
 }

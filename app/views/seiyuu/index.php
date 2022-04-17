@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-6">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modalForm">
+        <button type="button" id="buttonAdd" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#modalForm">
             Add People
         </button>
         <h3 class="mb-4">list of seiyuu</h3>
@@ -15,7 +15,9 @@
             <?php foreach ($data['seiyuu'] as $seiyuu) : ?>
                 <li class="list-group-item"> <?= $seiyuu['name']; ?>
                     <a href="<?= BASEURL; ?>/seiyuu/delete/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-danger text-white float-end" style="text-decoration:none;" onclick="return confirm('Are you sure want to delete data?')">delete</a>
+                    <a href="<?= BASEURL; ?>/seiyuu/edit/<?= $seiyuu['id']; ?>" data-bs-toggle="modal" data-bs-target="#modalForm" class=" ms-1 badge bg-success text-white float-end showModalEdit" data-id="<?= $seiyuu['id']; ?>" style="text-decoration:none;">edit</a>
                     <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-primary text-white float-end" style="text-decoration:none;">detail</a>
+
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -35,6 +37,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>/seiyuu/add" method="post">
+                    <input type="hidden" name="id" id="id">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
@@ -45,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="gender" class="form-label">Gender</label>
-                        <select class="form-select" name="gender" aria-label="Default select example">
+                        <select class="form-select" name="gender" id="gender" aria-label="Default select example">
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
                         </select>
