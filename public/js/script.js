@@ -8,6 +8,8 @@ $(function() {
         $('#gender').val('Male');
         $('#about').val('');
         $('#id').val('');
+        $('#image').val('');
+
 
         $('#modalTitle').html('Add New Seiyuu');
         $('.modal-footer button[type=submit]').html('Add Data');
@@ -36,6 +38,7 @@ $(function() {
                 $('#birth').val(data.birth);
                 $('#gender').val(data.gender);
                 $('#about').val(data.about);
+                $('#image').val(data.image);
                 $('#id').val(data.id);
             }
         });

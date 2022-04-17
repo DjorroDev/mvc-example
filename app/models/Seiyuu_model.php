@@ -23,7 +23,8 @@ class Seiyuu_model
         return $this->db->single();
     }
 
-    public function addDataSeiyuu($data)
+    // Since uploaded image not from POST need to added new data
+    public function addDataSeiyuu($data, $img)
     {
         // Changing date format
         $birth = $data['birth'];
@@ -31,13 +32,15 @@ class Seiyuu_model
 
         $query = "INSERT INTO seiyuu
                     VALUES
-                    (null, :name, :gender, :birth,  :about)";
+                    (null, :name, :gender, :birth,  :about, :image)";
 
         $this->db->query($query);
         $this->db->bind('name', $data['name']);
         $this->db->bind('gender', $data['gender']);
         $this->db->bind('birth', $birth);
         $this->db->bind('about', $data['about']);
+        $this->db->bind('image', $img);
+
 
         $this->db->execute();
 
@@ -55,7 +58,7 @@ class Seiyuu_model
         return $this->db->rowCount();
     }
 
-    public function changeDataSeiyuu($data)
+    public function changeDataSeiyuu($data, $img)
     {
         // Changing date format
         $birth = $data['birth'];
@@ -65,7 +68,8 @@ class Seiyuu_model
                     name = :name,
                     gender = :gender,
                     birth = :birth,
-                    about = :about
+                    about = :about,
+                    image = :image
                   WHERE id = :id";
 
         $this->db->query($query);
@@ -73,6 +77,7 @@ class Seiyuu_model
         $this->db->bind('gender', $data['gender']);
         $this->db->bind('birth', $birth);
         $this->db->bind('about', $data['about']);
+        $this->db->bind('image', $img);
         $this->db->bind('id', $data['id']);
 
 

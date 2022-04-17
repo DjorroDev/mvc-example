@@ -24,20 +24,44 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-6">
-        <h3 class="mb-4">list of seiyuu</h3>
-        <ul class="list-group">
-            <?php foreach ($data['seiyuu'] as $seiyuu) : ?>
-                <li class="list-group-item"> <?= $seiyuu['name']; ?>
-                    <a href="<?= BASEURL; ?>/seiyuu/delete/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-danger text-white float-end" style="text-decoration:none;" onclick="return confirm('Are you sure want to delete data?')">delete</a>
-                    <a href="<?= BASEURL; ?>/seiyuu/edit/<?= $seiyuu['id']; ?>" data-bs-toggle="modal" data-bs-target="#modalForm" class=" ms-1 badge bg-success text-white float-end showModalEdit" data-id="<?= $seiyuu['id']; ?>" style="text-decoration:none;">edit</a>
-                    <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-primary text-white float-end" style="text-decoration:none;">detail</a>
+<div class="row d-flex justify-content-center">
+    <div class="col">
+        <table class="table table-bordered align-middle">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-1">No.</th>
+                    <th scope="col" class="col-5">Name</th>
+                    <th scope="col" class="col-3">Birth</th>
+                    <th scope="col" class="col-2">action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $i = 1;
+                foreach ($data['seiyuu'] as $seiyuu) : ?>
+                    <tr>
+                        <th scope="row"><?= $i++; ?></th>
+                        <td>
+                            <?php if ($seiyuu['image'] != null || $seiyuu['image'] !== 'nophoto.jpg') : ?>
+                                <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>">
+                                    <img class="mx-2" src="<?= BASEURL; ?>/img/people/<?= $seiyuu['image']; ?>" width="100px" alt="<?= $seiyuu['name']; ?>">
+                                </a>
+                            <?php endif; ?>
 
-                </li>
-            <?php endforeach; ?>
-        </ul>
+                            <a class="" style="text-decoration: none;" href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>">
+                                <?= $seiyuu['name']; ?>
+                            </a>
+                        </td>
+                        <td><?= $seiyuu['birth']; ?></td>
+                        <td class="text-center">
+                            <a href="<?= BASEURL; ?>/seiyuu/detail/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-primary text-white" style="text-decoration:none;">detail</a>
+                            <a href="<?= BASEURL; ?>/seiyuu/edit/<?= $seiyuu['id']; ?>" data-bs-toggle="modal" data-bs-target="#modalForm" class=" ms-1 badge bg-success text-white showModalEdit" data-id="<?= $seiyuu['id']; ?>" style="text-decoration:none;">edit</a>
+                            <a href="<?= BASEURL; ?>/seiyuu/delete/<?= $seiyuu['id']; ?>" class="ms-1 badge bg-danger text-white" style="text-decoration:none;" onclick="return confirm('Are you sure want to delete data?')">delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
 
+            </tbody>
+        </table>
     </div>
 </div>
 
@@ -52,8 +76,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL; ?>/seiyuu/add" method="post">
+                <form action="<?= BASEURL; ?>/seiyuu/add" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id" id="id">
+                    <div class="mb-3">
+                        <label for="image" class="form-label">picture</label>
+                        <input type="file" class="form-control" id="image" name="image" placeholder="image">
+                    </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">

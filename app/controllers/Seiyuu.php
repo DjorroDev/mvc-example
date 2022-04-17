@@ -23,9 +23,12 @@ class Seiyuu extends Controller
 
     public function add()
     {
+        // Since uploaded image not from POST need to added new data
+        $image = $this->upload();
+
         try {
             //code...
-            if ($this->model('Seiyuu_model')->addDataSeiyuu($_POST) > 0) {
+            if ($this->model('Seiyuu_model')->addDataSeiyuu($_POST, $image) > 0) {
                 Flasher::setFlash('has been', 'added', 'success');
                 header('Location:' . BASEURL . '/seiyuu');
                 exit;
@@ -63,8 +66,10 @@ class Seiyuu extends Controller
 
     public function change()
     {
+        $image = $this->upload();
+
         try {
-            if ($this->model('Seiyuu_model')->changeDataSeiyuu($_POST) > 0) {
+            if ($this->model('Seiyuu_model')->changeDataSeiyuu($_POST, $image) > 0) {
                 Flasher::setFlash('has been', 'changed', 'success');
                 header('Location:' . BASEURL . '/seiyuu');
                 exit;
@@ -91,5 +96,28 @@ class Seiyuu extends Controller
         $this->view('templates/header', $data);
         $this->view('seiyuu/index', $data);
         $this->view('templates/footer');
+    }
+
+    public function upload()
+    {
+        $name = $_FILES['image']['name'];
+        $tmpName = $_FILES['image']['tmp_name'];
+        $error = $_FILES['image']['error'];
+
+        if ($error === 4) {
+            return 'nophoto.jpg';
+        }
+
+        // I can't get the type format of img so defaulr will be jpg
+        $format = pathinfo($name, PATHINFO_EXTENSION);
+        // var_dump($format);
+
+        $newName = uniqid();
+        $newName .= '.';
+        $newName .= $format;
+
+
+        move_uploaded_file($tmpName, 'img/people/' . $newName);
+        return $newName;
     }
 }
