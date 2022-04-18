@@ -15,6 +15,7 @@ class Seiyuu extends Controller
     {
         $data['judul'] = 'Seiyuu List';
 
+
         $data['seiyuu'] = $this->model('Seiyuu_model')->getSeiyuuById($id);
         $this->view('templates/header', $data);
         $this->view('seiyuu/detail', $data);
@@ -61,6 +62,7 @@ class Seiyuu extends Controller
 
     public function getchange()
     {
+        // var_dump(($this->model('Seiyuu_model')->getSeiyuuById($_POST['id'])));
         echo json_encode($this->model('Seiyuu_model')->getSeiyuuById($_POST['id']));
     }
 
@@ -105,12 +107,10 @@ class Seiyuu extends Controller
         $error = $_FILES['image']['error'];
 
         if ($error === 4) {
-            return 'nophoto.jpg';
+            return '';
         }
 
-        // I can't get the type format of img so defaulr will be jpg
         $format = pathinfo($name, PATHINFO_EXTENSION);
-        // var_dump($format);
 
         $newName = uniqid();
         $newName .= '.';

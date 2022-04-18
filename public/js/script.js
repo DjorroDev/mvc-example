@@ -8,7 +8,7 @@ $(function() {
         $('#gender').val('Male');
         $('#about').val('');
         $('#id').val('');
-        $('#image').val('');
+        // $('#image').val('');
 
 
         $('#modalTitle').html('Add New Seiyuu');
@@ -34,12 +34,14 @@ $(function() {
             method: 'post',
             dataType: 'json',
             success: (data) => {
+                // console.log(data);
                 $('#name').val(data.name);
                 $('#birth').val(data.birth);
                 $('#gender').val(data.gender);
                 $('#about').val(data.about);
-                $('#image').val(data.image);
+                // $('#image').val(data.image);
                 $('#id').val(data.id);
+                // console.log(data.image);
             }
         });
 
